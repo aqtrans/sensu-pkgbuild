@@ -1,0 +1,8 @@
+post_install() {
+    if [ "$(grep sensu /etc/passwd)" == "" ]; then
+        useradd -r -s /bin/sh -d /opt/sensu -c "Sensu Monitoring Framework" sensu
+    fi
+    chown sensu:sensu /etc/sensu
+    chown sensu:sensu /var/log/sensu
+    chown -R sensu:sensu /opt/sensu/sv
+}

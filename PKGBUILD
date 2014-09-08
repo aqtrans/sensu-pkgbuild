@@ -1,0 +1,25 @@
+# Contributor: Jordan <aq@es.gy>
+
+pkgname=sensu-bin
+pkgver=0.13.1
+deb_ver=0.13.1-1
+pkgrel=2
+pkgdesc="Omnibus version of Sensu, the open source monitoring framework. Direct from the .deb"
+arch=('i686' 'x86_64')
+license=('MPL' 'GPL' 'LGPL')
+url="http://sensuapp.org/"
+
+if [ "${CARCH}" = 'x86_64' ]; then
+  ARCH='amd64'
+md5sums=('a9045f76061300bf0391ae1663299c75')
+elif [ "${CARCH}" = 'i686' ]; then
+  ARCH='i386'
+fi
+install=sensu.install
+source=("http://repos.sensuapp.org/apt/pool/sensu/main/s/sensu/sensu_${deb_ver}_${ARCH}.deb")
+
+package() {
+  tar xzvf ${srcdir}/data.tar.gz -C ${pkgdir}/
+  msg2 "Cleaning up unwanted files..."
+  rm -rv "${pkgdir}"/etc/init.d
+}
