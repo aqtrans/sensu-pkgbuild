@@ -5,4 +5,8 @@ post_install() {
     chown sensu:sensu /etc/sensu
     chown sensu:sensu /var/log/sensu
     chown -R sensu:sensu /opt/sensu/sv
+    ln -s /opt/sensu/embedded/bin/sensu-ctl /usr/bin/sensu-ctl
+    echo "Now run 'sensu-ctl configure' to initiate the sensu-runsvdir service."
+    echo "Then run 'sensu-ctl help' for information on activating the services you want."
+    echo "And finally start/enable sensu-runsvdir.service."
 }

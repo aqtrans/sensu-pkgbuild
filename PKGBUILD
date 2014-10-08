@@ -1,9 +1,9 @@
-# Contributor: Jordan <aq@es.gy>
+# Contributor: Jordan Anderson <aq@es.gy>
 
 pkgname=sensu-bin
 pkgver=0.13.1
 deb_ver=0.13.1-1
-pkgrel=2
+pkgrel=4
 pkgdesc="Omnibus version of Sensu, the open source monitoring framework. Direct from the .deb"
 arch=('i686' 'x86_64')
 license=('MPL' 'GPL' 'LGPL')
@@ -22,4 +22,6 @@ package() {
   tar xzvf ${srcdir}/data.tar.gz -C ${pkgdir}/
   msg2 "Cleaning up unwanted files..."
   rm -rv "${pkgdir}"/etc/init.d
+  mkdir "${pkgdir}"/usr/bin
+  #cp "${pkgdir}"/opt/sensu/embedded/bin/sensu-ctl "${pkgdir}"/usr/bin/sensu-ctl
 }
