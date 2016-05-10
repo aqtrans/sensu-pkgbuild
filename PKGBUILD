@@ -1,9 +1,10 @@
 # Maintainer: Angel Velasquez <angvp@archlinux.org> 
 # Contributor: Jordan Anderson <aq@es.gy>
+# https://core.sensuapp.com/apt/pool/sensu/main/s/sensu/
 
 pkgname=sensu-bin
-pkgver=0.21.0
-deb_ver=0.21.0-2
+pkgver=0.23.2
+deb_ver=0.23.2-2
 pkgrel=1
 pkgdesc="Omnibus version of Sensu, the open source monitoring framework. Direct from the .deb"
 arch=('i686' 'x86_64')
@@ -12,13 +13,12 @@ url="http://sensuapp.org/"
 
 if [ "${CARCH}" = 'x86_64' ]; then
   ARCH='amd64'
-  md5sums=('de1b2286a70122b83316bbccd62d9226')
+md5sums=('e559b95e81e911a9ca9405b02223e9d9')
 elif [ "${CARCH}" = 'i686' ]; then
   ARCH='i386'
-  md5sums=('da057d202b6e8941d34cbf201214b979')
 fi
 install=sensu.install
-source=("http://repositories.sensuapp.org/apt/pool/sensu/main/s/sensu/sensu_${deb_ver}_${ARCH}.deb")
+source=("https://core.sensuapp.com/apt/pool/sensu/main/s/sensu/sensu_${deb_ver}_${ARCH}.deb")
 
 package() {
   tar xzvf ${srcdir}/data.tar.gz -C ${pkgdir}/
