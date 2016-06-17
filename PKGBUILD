@@ -3,8 +3,8 @@
 # https://core.sensuapp.com/apt/pool/sensu/main/s/sensu/
 
 pkgname=sensu-bin
-pkgver=0.23.2
-deb_ver=0.23.2-2
+pkgver=0.25.2
+deb_ver=0.25.2-1
 pkgrel=1
 pkgdesc="Omnibus version of Sensu, the open source monitoring framework. Direct from the .deb"
 arch=('i686' 'x86_64')
@@ -13,7 +13,7 @@ url="http://sensuapp.org/"
 
 if [ "${CARCH}" = 'x86_64' ]; then
   ARCH='amd64'
-md5sums=('e559b95e81e911a9ca9405b02223e9d9')
+md5sums=('b739c0efdf721ea7f325a64e91ec161e')
 elif [ "${CARCH}" = 'i686' ]; then
   ARCH='i386'
 fi
