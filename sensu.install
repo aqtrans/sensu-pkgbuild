@@ -5,18 +5,11 @@ post_install() {
     chown sensu:sensu /etc/sensu
     chown sensu:sensu /var/log/sensu
     chown -R sensu:sensu /opt/sensu/sv
-    #ln -s /opt/sensu/embedded/bin/sensu-ctl /usr/bin/sensu-ctl
-    ln -s /usr/share/sensu/systemd/sensu-api.service /usr/lib/systemd/system/
-    ln -s /usr/share/sensu/systemd/sensu-client.service /usr/lib/systemd/system/
-    ln -s /usr/share/sensu/systemd/sensu-server.service /usr/lib/systemd/system/
     echo "Sensu-{client,api,server}.service files are ready to start."
     echo "Consult /usr/share/sensu/systemd/README.md for more info."
 }
 post_upgrade() {
     echo "I am now using the individual systemd service files for sensu-{client,api,server}, instead of sensu-ctl, so the PKGBUILD has been updated to reflect this."
-    ln -s /usr/share/sensu/systemd/sensu-api.service /usr/lib/systemd/system/
-    ln -s /usr/share/sensu/systemd/sensu-client.service /usr/lib/systemd/system/
-    ln -s /usr/share/sensu/systemd/sensu-server.service /usr/lib/systemd/system/
     echo "Sensu-{client,api,server}.service files are ready to start."
     echo "Consult /usr/share/sensu/systemd/README.md for more info."
 }
